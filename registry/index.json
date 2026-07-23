@@ -1,0 +1,58 @@
+{
+  "name": "bflabs-ui",
+  "version": "0.1.0",
+  "style": "bf-labs",
+  "base": "react",
+  "items": [
+    {
+      "name": "button",
+      "type": "ui",
+      "files": [
+        "packages/ui/src/components/Button.tsx",
+        "packages/ui/src/components/icons.tsx"
+      ],
+      "styles": [
+        "packages/ui/src/styles/tokens.css",
+        "packages/ui/src/styles/base.css",
+        "packages/ui/src/styles/components.css"
+      ]
+    },
+    {
+      "name": "brand",
+      "type": "brand",
+      "files": [
+        "packages/ui/src/components/Brand.tsx",
+        "packages/ui/src/assets/bf-mark.svg"
+      ],
+      "styles": [
+        "packages/ui/src/styles/tokens.css",
+        "packages/ui/src/styles/components.css"
+      ]
+    },
+    {
+      "name": "kinetic-heading",
+      "type": "motion",
+      "files": ["packages/ui/src/components/KineticHeading.tsx"],
+      "styles": [
+        "packages/ui/src/styles/tokens.css",
+        "packages/ui/src/styles/components.css"
+      ]
+    },
+    {
+      "name": "agent-workspace",
+      "type": "pattern",
+      "files": [
+        "packages/ui/src/components/AgentMessage.tsx",
+        "packages/ui/src/components/PromptComposer.tsx",
+        "packages/ui/src/components/PromptSuggestions.tsx",
+        "packages/ui/src/components/ProcessSteps.tsx",
+        "packages/ui/src/components/ConfirmationCard.tsx"
+      ],
+      "styles": [
+        "packages/ui/src/styles/tokens.css",
+        "packages/ui/src/styles/base.css",
+        "packages/ui/src/styles/components.css"
+      ]
+    }
+  ]
+}

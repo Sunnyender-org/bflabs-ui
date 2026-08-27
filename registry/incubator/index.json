@@ -1,0 +1,25 @@
+{
+  "name": "bflabs-ui-incubator",
+  "version": "0.1.0",
+  "entries": [
+    {
+      "name": "amicro",
+      "status": "evaluated",
+      "source": "https://github.com/Subhan-code/Amicro--Micro-transitions-",
+      "sourceCommit": "07adc1640084940f045875e2bb1b682c90f30c3c",
+      "license": "MIT",
+      "selectedForRecipes": [
+        "pending indicators",
+        "skeleton and shimmer states",
+        "line, bar, donut, and heatmap patterns"
+      ],
+      "notSelectedForPilot": [
+        "cursor trails",
+        "magnetic controls",
+        "3D card effects",
+        "continuous decorative motion"
+      ],
+      "ownership": "Reference only. BF Labs owns the rewritten recipe source and public API."
+    }
+  ]
+}

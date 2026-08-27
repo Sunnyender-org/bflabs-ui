@@ -21,6 +21,17 @@ import {
   type BFThemeTone,
   type PromptSuggestion,
 } from '@bflabs/ui'
+import {
+  BarChart,
+  ChartFrame,
+  DonutChart,
+  Heatmap,
+  LineChart,
+  ShimmerLine,
+  Skeleton,
+  ThinkingDots,
+  TypingIndicator,
+} from '@bflabs/ui/recipes'
 
 const swatches = [
   ['Charcoal Black', '#111417'],
@@ -43,6 +54,50 @@ const suggestions = [
     description: 'Organize context, options, and a recommended next step.',
   },
 ] as const
+
+const weeklyUsage = [
+  { label: 'Mon', value: 42 },
+  { label: 'Tue', value: 58 },
+  { label: 'Wed', value: 49 },
+  { label: 'Thu', value: 73 },
+  { label: 'Fri', value: 68 },
+  { label: 'Sat', value: 81 },
+] as const
+
+const modelRuns = [
+  { label: 'Sol', value: 84 },
+  { label: 'Terra', value: 61 },
+  { label: 'Luna', value: 37 },
+  { label: 'Image', value: 29 },
+] as const
+
+const workloadMix = [
+  { label: 'Build', value: 46, tone: 'accent' },
+  { label: 'Research', value: 31, tone: 'charcoal' },
+  { label: 'Review', value: 17, tone: 'steel' },
+] as const
+
+const activityHeatmap = [
+  ['Build', 'M', 62],
+  ['Build', 'T', 76],
+  ['Build', 'W', 48],
+  ['Build', 'T2', 91],
+  ['Build', 'F', 72],
+  ['Review', 'M', 28],
+  ['Review', 'T', 54],
+  ['Review', 'W', 67],
+  ['Review', 'T2', 43],
+  ['Review', 'F', 82],
+  ['Research', 'M', 75],
+  ['Research', 'T', 39],
+  ['Research', 'W', 58],
+  ['Research', 'T2', 64],
+  ['Research', 'F', 47],
+].map(([row, column, value]) => ({
+  row: String(row),
+  column: String(column),
+  value: Number(value),
+}))
 
 type DemoMessage = {
   id: number
@@ -92,6 +147,7 @@ export default function App() {
         <nav aria-label="Documentation navigation">
           <a href="#foundations">Foundations</a>
           <a href="#components">Components</a>
+          <a href="#recipes">Recipes</a>
           <a href="#ai-patterns">AI patterns</a>
         </nav>
         <div className="tone-switch" aria-label="Preview background">
@@ -294,10 +350,110 @@ export default function App() {
           </Reveal>
         </section>
 
-        <section className="docs-section docs-section--dark" id="ai-patterns">
+        <section className="docs-section docs-recipes" id="recipes">
           <Reveal>
             <SectionHeading
               index="03"
+              label="Recipes"
+              eyebrow="Curated and translated"
+              title="Signals for work in motion."
+              summary="Selected patterns are rebuilt around BF Labs tokens, accessible data, and real product states. Recipes prove their value in products before they become core primitives."
+            />
+          </Reveal>
+
+          <Reveal className="recipe-signal-stage">
+            <div className="recipe-signal-stage__copy">
+              <span className="panel-label">Pending states</span>
+              <h3>Loading is a real state.</h3>
+              <p>
+                Products can distinguish thinking, responding, and content loading
+                without showing decorative motion or flashing a final empty state.
+              </p>
+            </div>
+            <div className="recipe-signal-stage__states">
+              <ThinkingDots />
+              <TypingIndicator />
+              <div className="recipe-skeleton" aria-label="Content loading preview">
+                <Skeleton shape="circle" width="2.5rem" />
+                <div>
+                  <ShimmerLine width="42%" />
+                  <ShimmerLine width="86%" />
+                  <ShimmerLine width="68%" />
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <div className="recipe-chart-grid">
+            <Reveal className="recipe-chart recipe-chart--wide">
+              <ChartFrame
+                eyebrow="Usage / 6 days"
+                title="Workspace activity"
+                value="81 runs"
+                change="+18.6%"
+                changeTone="positive"
+                description="A lightweight trend surface for usage, delivery, and operational throughput."
+              >
+                <LineChart
+                  data={[...weeklyUsage]}
+                  ariaLabel="Workspace activity rose from 42 runs on Monday to 81 runs on Saturday"
+                  valueFormatter={(value) => `${value} runs`}
+                />
+              </ChartFrame>
+            </Reveal>
+
+            <Reveal delay={60} className="recipe-chart">
+              <ChartFrame
+                eyebrow="Routing"
+                title="Runs by model"
+                value="211"
+                description="Compare a small set of named categories with clear labels and aligned values."
+              >
+                <BarChart
+                  data={[...modelRuns]}
+                  ariaLabel="Model runs: Sol 84, Terra 61, Luna 37, Image 29"
+                  valueFormatter={(value) => `${value} runs`}
+                />
+              </ChartFrame>
+            </Reveal>
+
+            <Reveal delay={90} className="recipe-chart">
+              <ChartFrame
+                eyebrow="Workload"
+                title="Task mix"
+                description="Part-to-whole views stay limited to a few meaningful segments."
+              >
+                <DonutChart
+                  data={[...workloadMix]}
+                  ariaLabel="Task mix: Build 46, Research 31, Review 17"
+                  valueFormatter={(value) => `${value}`}
+                  centerLabel="tasks"
+                />
+              </ChartFrame>
+            </Reveal>
+
+            <Reveal delay={120} className="recipe-chart recipe-chart--wide">
+              <ChartFrame
+                eyebrow="Coverage"
+                title="Weekly workflow density"
+                value="91%"
+                change="Peak"
+                description="A compact matrix for coverage, activity, or service health across two dimensions."
+              >
+                <Heatmap
+                  data={activityHeatmap}
+                  ariaLabel="Weekly workflow density by activity and weekday"
+                  valueFormatter={(value) => `${value}%`}
+                />
+              </ChartFrame>
+            </Reveal>
+          </div>
+        </section>
+
+        <section className="docs-section docs-section--dark" id="ai-patterns">
+          <Reveal>
+            <SectionHeading
+              index="04"
               label="AI patterns"
               eyebrow="Expression · process · confirmation · feedback"
               title="AI components for work, not only chat."
@@ -399,4 +555,3 @@ export default function App() {
     </BFTheme>
   )
 }
-

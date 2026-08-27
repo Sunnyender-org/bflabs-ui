@@ -53,6 +53,34 @@
         "packages/ui/src/styles/base.css",
         "packages/ui/src/styles/components.css"
       ]
+    },
+    {
+      "name": "pending-recipes",
+      "type": "recipe",
+      "status": "pilot",
+      "files": [
+        "packages/ui/src/recipes/PendingIndicator.tsx",
+        "packages/ui/src/recipes/Skeleton.tsx"
+      ],
+      "styles": [
+        "packages/ui/src/styles/tokens.css",
+        "packages/ui/src/styles/base.css",
+        "packages/ui/src/styles/components.css"
+      ]
+    },
+    {
+      "name": "data-visualization-recipes",
+      "type": "recipe",
+      "status": "pilot",
+      "files": [
+        "packages/ui/src/recipes/ChartFrame.tsx",
+        "packages/ui/src/recipes/Charts.tsx"
+      ],
+      "styles": [
+        "packages/ui/src/styles/tokens.css",
+        "packages/ui/src/styles/base.css",
+        "packages/ui/src/styles/components.css"
+      ]
     }
   ]
 }

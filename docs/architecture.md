@@ -9,6 +9,11 @@ BF Labs UI combines two delivery models:
 2. `registry/index.json` describes source files that teams may copy into a
    product when deeper ownership is required.
 
+Recipes use a separate `@bflabs/ui/recipes` entry point. They are production-
+usable, but remain outside the core API until product adoption proves that the
+abstraction should be shared long term. `registry/incubator/index.json` records
+evaluated source projects and rejected directions without copying their code.
+
 Version 0.1 keeps tokens, motion, and components in one package so the system is
 easy to adopt. They can become separate packages when multiple products prove
 that independent release cycles are useful.
@@ -21,7 +26,8 @@ Foundation tokens
     → core UI components
       → brand components
         → AI workflow components
-          → product templates
+          → recipes
+            → product templates
 ```
 
 ## Component groups
@@ -31,6 +37,8 @@ Foundation tokens
 - Brand: BrandMark, BrandLockup, SectionHeading, KineticHeading, Reveal.
 - AI workflow: AgentMessage, PromptComposer, PromptSuggestions, ProcessSteps,
   ConfirmationCard.
+- Recipes: pending indicators, loading placeholders, chart frames, and
+  dependency-free data visualizations.
 
 ## Reference roles
 
@@ -60,4 +68,3 @@ corner styles, gradients, or framework assumptions.
 - Standalone assistant, side-panel assistant, and inline action templates.
 - Browser interaction checks and selected visual comparisons in continuous
   integration.
-

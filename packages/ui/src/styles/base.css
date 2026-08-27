@@ -45,3 +45,18 @@
   font-family: var(--bf-font-cjk);
 }
 
+.bf-visually-hidden {
+  position: fixed !important;
+  inset: 0 auto auto 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: normal !important;
+  border: 0 !important;
+  contain: strict !important;
+  table-layout: fixed !important;
+}

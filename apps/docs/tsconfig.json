@@ -4,7 +4,8 @@
     "noEmit": true,
     "types": ["vite/client"],
     "paths": {
-      "@bflabs/ui": ["../../packages/ui/src/index.ts"]
+      "@bflabs/ui": ["../../packages/ui/src/index.ts"],
+      "@bflabs/ui/recipes": ["../../packages/ui/src/recipes/index.ts"]
     }
   },
   "include": ["src", "vite.config.ts"]

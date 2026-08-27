@@ -32,3 +32,14 @@ keeping the BF Labs visual system authoritative.
   confirmation, and feedback.
 - Not adopted: its default colors, gradients, rounded geometry, or product tone.
 
+## Amicro
+
+- Repository: <https://github.com/Subhan-code/Amicro--Micro-transitions->
+- Evaluated commit: `07adc1640084940f045875e2bb1b682c90f30c3c`.
+- Adopted idea: source-distributed pending states, skeletons, and compact data
+  visualization patterns.
+- Not adopted: Tailwind, Motion, or Recharts as core dependencies; hard-coded
+  demo data and copy; large-radius surfaces; cursor trails; magnetic controls;
+  3D card effects; or continuous decorative motion.
+- Ownership: BF Labs recipes are independent rewrites with semantic props,
+  accessible data tables, reduced-motion behavior, and BF Labs tokens.

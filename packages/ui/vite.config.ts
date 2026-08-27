@@ -5,9 +5,12 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: 'src/index.ts',
+      entry: {
+        index: 'src/index.ts',
+        recipes: 'src/recipes/index.ts',
+      },
       formats: ['es'],
-      fileName: () => 'index.js',
+      fileName: (_format, entryName) => `${entryName}.js`,
       cssFileName: 'styles',
     },
     rollupOptions: {
